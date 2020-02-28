@@ -22,7 +22,7 @@ export class AddConnoisseurHandler implements ICommandHandler<AddConnoisseurComm
             // Is there really no better way to check for existence of any results in this QueryIterator crap?
             let accountExists = false;
 
-            // Is there a better way to do this? This Interator<> business is weird...
+            // Is there a better way to do this? This QueryIterator<> business is weird...
             for await (const record of accountRecords) {
                 if (record.secondaryId.startsWith(KEY_PREFIX_CONNOISSEUR)) {
                     return Rejection.BadRequest("That account already has a connoisseur profile.");

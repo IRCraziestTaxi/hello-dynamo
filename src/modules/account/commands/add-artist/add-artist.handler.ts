@@ -22,7 +22,7 @@ export class AddArtistHandler implements ICommandHandler<AddArtistCommand> {
             // Is there really no better way to check for existence of any results in this QueryIterator crap?
             let accountExists = false;
 
-            // Is there a better way to do this? This Interator<> business is weird...
+            // Is there a better way to do this? This QueryIterator<> business is weird...
             for await (const record of accountRecords) {
                 if (record.secondaryId.startsWith(KEY_PREFIX_ARTIST)) {
                     return Rejection.BadRequest("That account already has an artist profile.");
