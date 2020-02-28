@@ -1,8 +1,14 @@
 import { Module } from "@nestjs/common";
-import { ArtReviewHistoryService } from "./art-review-history.service";
+import { CqrsModule } from "@nestjs/cqrs";
+import { DatabaseModule } from "../database/database.module";
 import { ArtReviewHistoryController } from "./art-review-history.controller";
+import { ArtReviewHistoryService } from "./art-review-history.service";
 
 @Module({
+    imports: [
+        CqrsModule,
+        DatabaseModule
+    ],
     providers: [ArtReviewHistoryService],
     controllers: [ArtReviewHistoryController]
 })

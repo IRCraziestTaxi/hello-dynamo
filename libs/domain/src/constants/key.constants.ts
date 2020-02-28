@@ -1,5 +1,6 @@
 export const KEY_HASH_ARTMEDIA = "artmedia";
 export const KEY_POSTFIX_METADATA = "metadata";
+export const KEY_PREFIX_ACCOUNT = "account_";
 export const KEY_PREFIX_ARTIST = "artist_";
 export const KEY_PREFIX_ARTMEDIA = `${KEY_HASH_ARTMEDIA}_`;
 export const KEY_PREFIX_ARTPIECE = "artpiece_";

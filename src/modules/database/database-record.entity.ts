@@ -1,8 +1,14 @@
 import { attribute, hashKey, rangeKey, table } from "@aws/dynamodb-data-mapper-annotations";
+import { TABLE_NAME_DATABASE_RECORDS } from "@domain/constants/entity.constants";
 import { GSI_ARTPIECE_BY_ARTIST_LOOKUP, GSI_ARTREVIEW_BY_ARTPIECE_LOOKUP, GSI_ARTREVIEW_BY_CONNOISSEUR_LOOKUP } from "@domain/constants/index.constants";
 import { IAccount, IArtist, IArtMedia, IArtPiece, IArtReview, IArtReviewHistory, IConnoisseur } from "@domain/interfaces";
-import { TABLE_NAME_DATABASE_RECORDS } from "@domain/constants/entity.constants";
+import { MapFrom, MapProp } from "ts-simple-automapper";
+import { AddAccountCommand } from "../account/commands/add-account/add-account.command";
+import { AddArtistCommand } from "../account/commands/add-artist/add-artist.command";
 
+/**
+ * Uses the single table pattern.
+ */
 @table(TABLE_NAME_DATABASE_RECORDS)
 export class DatabaseRecord implements
     IAccount,
@@ -17,6 +23,10 @@ export class DatabaseRecord implements
      */
 
     @hashKey()
+    @MapFrom(() => AddAccountCommand, {
+        mapFrom: c => c.email
+    })
+    @MapFrom(() => AddArtistCommand)
     public primaryId: string;
 
     @rangeKey()
@@ -31,6 +41,7 @@ export class DatabaseRecord implements
             [GSI_ARTPIECE_BY_ARTIST_LOOKUP]: "HASH"
         }
     })
+    @MapProp()
     public artistId: string;
 
     @attribute({
@@ -38,6 +49,7 @@ export class DatabaseRecord implements
             [GSI_ARTREVIEW_BY_ARTPIECE_LOOKUP]: "HASH"
         }
     })
+    @MapProp()
     public artpieceId: string;
 
     @attribute({
@@ -45,6 +57,7 @@ export class DatabaseRecord implements
             [GSI_ARTREVIEW_BY_CONNOISSEUR_LOOKUP]: "HASH"
         }
     })
+    @MapProp()
     public connoisseurId: string;
 
     /*
@@ -52,6 +65,7 @@ export class DatabaseRecord implements
      */
 
     @attribute()
+    @MapProp()
     public username: string;
 
     /*
@@ -59,9 +73,11 @@ export class DatabaseRecord implements
      */
 
     @attribute()
+    @MapProp()
     public nickname: string;
 
     @attribute()
+    @MapProp()
     public started: Date;
 
     /*
@@ -69,6 +85,7 @@ export class DatabaseRecord implements
      */
 
     @attribute()
+    @MapProp()
     public name: string;
 
     /*
@@ -80,6 +97,7 @@ export class DatabaseRecord implements
             [GSI_ARTPIECE_BY_ARTIST_LOOKUP]: "RANGE"
         }
     })
+    @MapProp()
     public completed: Date;
 
     /*
@@ -87,9 +105,11 @@ export class DatabaseRecord implements
      */
 
     @attribute()
+    @MapProp()
     public authored: Date;
 
     @attribute()
+    @MapProp()
     public notes: string;
 
     @attribute({
@@ -98,6 +118,7 @@ export class DatabaseRecord implements
             [GSI_ARTREVIEW_BY_CONNOISSEUR_LOOKUP]: "RANGE"
         }
     })
+    @MapProp()
     public rating: number;
 
     /*
@@ -105,6 +126,7 @@ export class DatabaseRecord implements
      */
 
     @attribute()
+    @MapProp()
     public title: string;
 
     /*
@@ -112,5 +134,6 @@ export class DatabaseRecord implements
      */
 
     @attribute()
+    @MapProp()
     public description: string;
 }

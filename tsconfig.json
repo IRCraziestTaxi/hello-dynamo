@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "esModuleInterop": true,
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -12,7 +13,8 @@
     "incremental": true,
     "paths": {
       "@domain": ["libs/domain/src"],
-      "@domain/*": ["libs/domain/src/*"]
+      "@domain/*": ["libs/domain/src/*"],
+      "@services/database": ["src/modules/database/database.service.ts"]
     }
   },
   "exclude": ["node_modules", "dist"]

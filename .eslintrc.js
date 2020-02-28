@@ -25,6 +25,7 @@ module.exports = {
     "indent": ["error", 4],
     "brace-style": ["error", "stroustrup"],
     "@typescript-eslint/explicit-member-accessibility": ["error"],
-    "no-trailing-spaces": ["error"]
+    "no-trailing-spaces": ["error"],
+    "semi": ["error", "always"]
   },
 };

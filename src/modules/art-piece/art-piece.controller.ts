@@ -1,4 +1,5 @@
 import { Controller } from "@nestjs/common";
+import { CommandResultController } from "@responsekit/express";
 
-@Controller("art-piece")
-export class ArtPieceController {}
+@Controller("art-pieces")
+export class ArtPieceController extends CommandResultController { }
