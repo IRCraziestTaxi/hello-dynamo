@@ -28,7 +28,6 @@ export class DatabaseService {
         });
     }
 
-    // Take a Partial so we only have to query by hash and range keys.
     public async get(queryRecord: DatabaseRecord): Promise<DatabaseRecord> {
         return this._dynamoMapper.get(queryRecord);
     }
