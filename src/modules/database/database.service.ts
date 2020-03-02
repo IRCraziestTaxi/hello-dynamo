@@ -8,8 +8,6 @@ import { DynamoDB } from "aws-sdk";
 
 type ComparableType = string | number | boolean | Date;
 
-// TODO: Make this service generic and create database-record.service.ts
-// (and eventually migration-record.service.ts) to wrap or extend it.
 @Injectable()
 export class DatabaseService {
     private readonly _dynamo: DynamoDB;

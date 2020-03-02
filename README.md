@@ -16,9 +16,11 @@ DYNAMO_TABLE_READ_CAPACITY_UNITS = 1
 DYNAMO_TABLE_WRITE_CAPACITY_UNITS = 1
 ```
 
-## Migrations
+## Creating and updating the table
 
-A minimal concept for migrations will be added later, but for now, simply create the table by running:
+Migrations are not really possible with DynamoDB. `createTable`/`ensureTableExists` wants options for indexes defined on the entity, so theoretical "previous migrations" where an index was previously not defined will fail to run because the options were not specified for that migration. Just use the `migration-runner.ts` file to update the table definition with index options specified as they change.
+
+To create or update the table, run the command:
 
 ```
 npm run mig:run
