@@ -17,7 +17,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "mig:run": "ts-node -r tsconfig-paths/register src/modules/database/migrations/migration-runner.ts"
+    "mig:run": "ts-node -r tsconfig-paths/register src/modules/database/migrations/migration-runner.up.ts",
+    "mig:revert": "ts-node -r tsconfig-paths/register src/modules/database/migrations/migration-runner.down.ts"
   },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
