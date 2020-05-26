@@ -30,7 +30,7 @@
     "@nestjs/swagger": "^4.5.7",
     "@responsekit/core": "^1.0.1",
     "@responsekit/express": "^1.0.0",
-    "aws-sdk": "^2.628.0",
+    "aws-sdk": "^2.683.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.11.0",
     "nanoid": "^2.1.11",
