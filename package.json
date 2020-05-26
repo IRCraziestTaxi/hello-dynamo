@@ -36,7 +36,7 @@
     "nanoid": "^2.1.11",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
-    "rxjs": "^6.5.4",
+    "rxjs": "^6.5.5",
     "swagger-ui-express": "^4.1.4",
     "ts-simple-automapper": "^1.0.2"
   },
