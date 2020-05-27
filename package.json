@@ -25,7 +25,7 @@
     "@nestjs/common": "^6.11.11",
     "@nestjs/config": "^0.2.4",
     "@nestjs/core": "^6.10.14",
-    "@nestjs/cqrs": "^6.1.0",
+    "@nestjs/cqrs": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/swagger": "^4.5.8",
     "@responsekit/core": "^1.0.1",
